@@ -254,7 +254,7 @@ allora ci sono due possibilità:
 dove $f_1(s) = f_2(s)$ è vera per ipotesi.
 \end{description}
 La monotonia di $\fund{\cond}{P \times \ST \times \ST}{\ST}$
-sul secondo argomento è quindi dimostrata, e cos\`\i la monotonia
+sul secondo argomento è quindi dimostrata, e cos\`\i\ la monotonia
 di $\fund{F}{\ST}{\ST}$ in quanto composizione di $\cond$ e $\seq$.
 
 Sia ora $X \subseteq \ST$ una catena e mostriamo che l'insieme
@@ -270,8 +270,8 @@ o $f_2 \sqsubseteq f_1$: nel primo caso, per monotonia di $F$, abbiamo
 $h_1 = F(f_1) \sqsubseteq F(f_2) = h_2$;
 nel secondo caso,
 $h_2 = F(f_2) \sqsubseteq F(f_1) = h_1$.
-Dunque $X$ \`e totalmente ordinato ed \`e una catena.
-Essendo $\ST$ \`e un CPO, abbiamo mostrato che esiste $\lub_{\sqsubseteq} F(X)$.
+Dunque $F(X)$ \`e totalmente ordinato ed \`e una catena.
+Essendo $\ST$ un CPO, abbiamo mostrato che esiste $\lub_{\sqsubseteq} F(X)$.
 Più precisamente, \`e facile vedere, usando i risultati di monotonia
 appena dimostrati, che $\lub_{\sqsubseteq} F(X) = h$,
 dove $h \in \ST$ è definito da
@@ -280,16 +280,17 @@ dove $h \in \ST$ è definito da
   p &\defeq \calB \llbracket B \rrbracket, \\
   g &\defeq \calC \llbracket C \rrbracket.
 \end{align*}
-Infatti, sia $f \in X$:
+Infatti, sia $f \in X$, allora $f \sqsubseteq \lub_{\sqsubseteq} X$ e, per monotonia:
 \begin{align*}
   F(f)
     &=
       \cond\bigl(p, \seq(g, f), \id\bigr) \\
     &\sqsubseteq
       \cond\bigl(p, \seq(g, \lub_{\sqsubseteq} X), \id\bigr) \\
+    &=F(\lub_{\sqsubseteq} X)\\
     &= h,
 \end{align*}
-e quindi $h$ \`e un upper bound per $F(X)$.
+e quindi $h$ \`e un upper bound per $F(X)$, mostriamo che \`e il minimo.
 Sia ora $u$ un qualsiasi upper bound per $F(X)$,
 dunque $f \in X$ implica $F(f) \sqsubseteq u$:
 mostreremo che $h \sqsubseteq u$.
