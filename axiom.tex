@@ -171,7 +171,15 @@ L'invariante è una proprietà delle variabili che valgono:
 Il predicato $P$ è un \emph{invariante di ciclo} per il ciclo
 $\kw{while} B \kw{do} C $ se $P$ in congiunzione con la guardia $B$, esegue il comando $C$ e lascia invariato $P$. Ovvero, $P$ è vero dopo ogni iterazione del ciclo e in particolare alla fine del ciclo.
 
-La \emph{regola della conseguenza} dice che è sempre possibile rafforzare la precondizione e indebolire la postcondizione, questa regola è ottenuta mettendo insieme la precondition strengthening e postcondition weakening.
+\section{Regole strutturali}
+
+Le \emph{regole strutturali} non dipendono dalle frasi del programma,
+ma solo dalle relazioni logiche che intercorrono tra le pre e postcondizioni.
+
+La \emph{regola della conseguenza} dice che è sempre possibile
+rafforzare la precondizione e indebolire la postcondizione, questa
+regola è ottenuta mettendo insieme la precondition strengthening e
+postcondition weakening (e dunque è ridondante rispetto a queste).
 Ovvero:
 \[
   \rulename {H-CONS}
@@ -243,6 +251,37 @@ La regola della congiunzione in postcondizione:
   \endprooftree
 \]
 La postcondizione $true$ è sempre soddisfatta quindi $P$ e $C$ possono essere qualsiasi cosa.
+
+Regola della disgiunzione:
+\[
+  \rulename {H-OR}
+  \prooftree
+    \vdash \{P_1\} C\{Q_1\}
+    \quad
+    \vdash \{P_2\} C\{Q_2\}
+   \justifies
+     \vdash \{P_1 \lor P_2\}C\{Q_1 \lor Q_2\}
+  \endprooftree
+\]
+Come altre regole strutturali, questa regola è ridondante.
+Infatti, almeno una tra $(P_1 \lor P_2) \implies P_1$
+e $(P_1 \lor P_2) \implies P_2$ deve valere.
+Supponiamo, senza perdita di generalità,
+che valga la prima e notiamo che il seguente albero parziale, che usa
+una sola applicazione di (H-CONS), ha gli
+stessi rami aperti dello schema (H-OR):
+\[
+  \rulename {H-CONS}
+  \prooftree
+    \vdash (P_1 \lor P_2) \implies P_1
+    \quad
+    \vdash \{P_1\} C\{Q_1\}
+    \quad
+    \vdash Q_1 \implies (Q_1 \lor Q_2)
+   \justifies
+     \vdash \{P_1 \lor P_2\}C\{Q_1 \lor Q_2\}
+  \endprooftree
+\]
 
 \section{Regole derivate}
 Elenchiamo in questo paragrafo ulteriori regole utili nella dimostrazione di formule di correttezza. Tali
