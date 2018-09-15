@@ -133,7 +133,7 @@ scalare in un array:
   \prooftree
     \config{E_0}{s} \ssarrow \config{E_0'}{s'}
   \justifies
-    \config{x(E_0) \weq E_1}{s} \ssarrow \config{x(E_0') \weq E_1}{s'}m
+    \config{x(E_0) \weq E_1}{s} \ssarrow \config{x(E_0') \weq E_1}{s'}
   \endprooftree \\[12pt]
   \prooftree
     \config{E_1}{s} \ssarrow \config{E_1'}{s'}
@@ -252,7 +252,7 @@ Siano $x \in \Var$ e $E \in \AExp$
   \pts
   &\prooftree
   \nohyp
-  \justifies \config{C_1 \weq C_2}{s} \ssarrow \config{\kw{skip}}{s}
+  \justifies \config{C_1 ; C_2}{s} \ssarrow \config{\kw{skip}}{s}
   \using s(\ecc) \convrg
   \endprooftree
   \pts
